@@ -1,5 +1,5 @@
 services:
-  titiler-pgstac:
+  stac-fastapi-pgstac:
     image: ianhorn/stac-fastapi-pgstac-lambda-layer
     container_name: sfap-layer
     platform: linux/amd64
