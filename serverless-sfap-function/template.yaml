@@ -1,0 +1,65 @@
+# This AWS SAM template has been generated from your function's configuration.
+# If your function has one or more triggers, note that the AWS resources
+# associated with these triggers aren't fully specified in this template and
+# include placeholder values. Open this template in AWS Infrastructure Composer
+# or your favorite IDE and modify it to specify a serverless application with
+# other AWS resources.
+#
+# - SAM automatically generates permissions to interact with the resources
+#   defined in this template. If your function needs additional permissions, add
+#   Policies to the AWS::Serverless::Function resource.
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application Model (SAM) template describing your function.
+Resources:
+  serverlesssfap:
+    Type: AWS::Serverless::Function
+    Properties:
+      Architectures:
+        - x86_64
+      CodeUri: ./src
+      Description: ''
+      Environment:
+        Variables:
+          PGHOST: >-
+            AQICAHhKb4D84UtlyyToa7ptcHDXdTUFXNETrp+EnVWizkRumAHO2N4gs9WLHSoQynwXkFGUAAAAmDCBlQYJKoZIhvcNAQcGoIGHMIGEAgEAMH8GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMc+vyoQ6QI179atHKAgEQgFIUDnSFO9KuH5sC0jJQ2L9ySjwdmVASkx7Kk96hE1+Qsckf5Ld7xv0975gN8mGtCyAAAfLquDisL7/CkaomOSGr+kYyHayjp5xPyiQZP+95yzfF
+          STAC_FASTAPI_DESCRIPTION: >-
+            AQICAHhKb4D84UtlyyToa7ptcHDXdTUFXNETrp+EnVWizkRumAEWDo5qNlkxjQQwU8qoke+EAAADSTCCA0UGCSqGSIb3DQEHBqCCAzYwggMyAgEAMIIDKwYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAyER1kzu05C9GfJ7rcCARCAggL8IFNqTAizkORSrTGStHOpPP4arqYuzQdwlQ/7ihkmBm+lpY6GePHwL1y4z1O61624PAWqhX4i0/hxoyKG0yWNXtn+90hZjjvGknrcH8ZZW1cCGLACIqsb8pFVr+eO3Qv405ipsS4QYqJBACQBa5y55DeoQjtd/1/CDbomJO/DASouziSlPQaydSAtaPThsH8J6fvxCh1RrYYuMvUekTokHDcADc672TzmDKjX5mxgluQGpEErqQnrrcIJghzqWPk+GWEg9qHYSy2v3TtMUGByBvtYw8SMelN8b9yHoYEm7RC19HFgZ4HVkn0IcLs9ZNYPwO/tS3kHw6W+eL6eFHhU7h8d3XjAn2watAuMgfagB7QRS9rnfzViAie972IxiylWrrxDy/ASXpuiH0drOzRub2K/LYI3JzHUiXXqcxn1ERjaO13wYo1aP8a1VcAfmj4b0PFwT5xOjLUssRswt1uDHq7QeuovkIF1yFLJAI7hhMFaXKAtgcu6jCCJKsiRjYhGCJjQDo2cuoHV5CsIkOYEUxn7bT7ZUYYURgaE4Gf82gRjRv+HAN8HEPMEUpjEaMSDE4y8piptSQ6fexaZiPZoT8+boU+5iUrScRsebUwI4aby0vXNNLh6MJyEyfwx79W7w5pEq9F6WFQ680fGE1q8hB4I1EKAunpJDro4bFINgVVlE+N44cPQd8eE96Uvokg7P7KXhFotAVt2yNF+pXZDCsUqRVBWatUweGREjcsleHQB7vsWXPfn1RajU5ex1kUSGYGJjv3AQmuccWDq9U+Z/SJuxuAr2vLolb2nGxeRnIkFxvCVYv/DJSa3s9t93IgnAvZ0oMvogsaQ83O0dqFCog5iOzf5cycMTwvdqweMRVwvPFg7qKpI+OGCdxhX+BB869MSuba+jcsUnBYPfzTAbF4BRpuJH6GsRgFSENM5z9Nh6kSIV3Wv2JVFA5scEl02sTU64+TcjvJ+37WLX8Tl7dRaKRdpA7ez5daGwKR3meSj4PEyNRxYdVnnVYk=
+          STAC_FASTAPI_TITLE: >-
+            AQICAHhKb4D84UtlyyToa7ptcHDXdTUFXNETrp+EnVWizkRumAGGRRnGaEviSG0qaAHndzHFAAAAjzCBjAYJKoZIhvcNAQcGoH8wfQIBADB4BgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDBB+m/pZROfECYNuUAIBEIBL0F/EId72eEu+cjacnuwHt3k5XrA5MeDYZ2SLHvfnrRDrlDpzAyc3hPouuwBQe8Pk6ATFxlQK8jD2BL256ZW9hNQRTM0824NGLiRD
+          STAC_FASTAPI_VERSION: 6.2.1
+          PGUSER: postgres
+          PGPORT: '5432'
+          USE_API_HYDRATE: 'false'
+          CORS_ORIGINS: '*'
+          PGDATABASE: postgis
+          PGPASSWORD: >-
+            AQICAHhKb4D84UtlyyToa7ptcHDXdTUFXNETrp+EnVWizkRumAEPZbX6sKrEHIngxGvIFUFAAAAAZzBlBgkqhkiG9w0BBwagWDBWAgEAMFEGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMrKX9Fo34KHMfz32mAgEQgCRlE+9MV/hSqW3+zcfV+D6ZdUcTH9SlZemcnS8mzC/ioK/eMb8=
+      EphemeralStorage:
+        Size: 512
+      Handler: index.handler
+      Layers:
+        - arn:aws:lambda:us-west-2:405369522825:layer:stac-fastapi-pgstac:5
+      LoggingConfig:
+        LogFormat: Text
+        LogGroup: /aws/lambda/serverless-sfap
+      MemorySize: 1028
+      PackageType: Zip
+      RecursiveLoop: Terminate
+      Runtime: python3.14
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: Auto
+      SnapStart:
+        ApplyOn: None
+      Tags:
+        pgstac: pgstac
+        serverless: serverless
+        stac-api: stac-api
+      Timeout: 10
+      Tracing: PassThrough
+      Events:
+        Trigger1Event:
+          Type: HttpApi
+          Properties:
+            Method: $default
+            Path: /MyResource
