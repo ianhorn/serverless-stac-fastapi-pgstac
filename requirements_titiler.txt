@@ -1,7 +1,0 @@
-titiler.pgstac
-requests
-pyyaml
-jinja2
-mangum
-psycopg[binary]
-psycopg[pool]
