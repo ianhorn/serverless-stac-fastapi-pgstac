@@ -1,33 +1,22 @@
 ARG PYTHON_VERSION=3.14
 
-FROM python:${PYTHON_VERSION}-slim AS base
+FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
 
-# Any python libraries that require system libraries to be installed will likely
-# need the following packages in order to build
-RUN apt-get update && \
-    apt-get -y upgrade && \
-    apt-get install -y build-essential git && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+ENV PREFIX=/opt
+RUN mkdir ${PREFIX}/python
 
-ENV CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+RUN dnf install -y gcc-c++ && dnf clean all
 
-FROM base AS builder
+RUN python -m pip install pip -U
 
-RUN python -m pip install -U pip
+COPY requirements.txt requirements.txt
+COPY stac-fastapi-pgstac-layer/scripts/create-lambda-layer.sh create-lambda-layer.sh
+RUN python -m pip install \
+    -r requirements.txt \
+    --no-binary pydantic \
+    -t ${PREFIX}/python
 
-WORKDIR /app
+ENV PYTHONPATH=${PREFIX}/python
+ENV PATH=${PREFIX}/python/bin:${PATH}
 
-COPY stac_fastapi/ stac_fastapi/
-COPY scripts/wait-for-it.sh scripts/wait-for-it.sh
-COPY pyproject.toml pyproject.toml
-COPY README.md README.md
-
-RUN python -m pip install .[server]
-RUN rm -rf stac_fastapi .toml README.md
-
-RUN groupadd -g 1000 user && \
-    useradd -u 1000 -g user -s /bin/bash -m user
-USER user
-
-CMD ["uvicorn", "stac_fastapi.pgstac.app:app", "--host", "0.0.0.0", "--port", "8080"]
+ENTRYPOINT ["bash"]
